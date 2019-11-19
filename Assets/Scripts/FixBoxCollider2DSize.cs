@@ -27,35 +27,23 @@ public class FixBoxCollider2DSize : MonoBehaviour {
 	void Start () {
 		
 		//Check if the gameObject has a BoxCollider2D
-		if(GetComponentsInChildren<BoxCollider2D>().Length == 0){
+		if(!GetComponent<BoxCollider2D>()){
 			Debug.LogWarning(gameObject.name + " does not have a BoxCollider2D", gameObject);
 			DestroyImmediate(this);
 			return;
 		}
 		
 		//Check if the gameObject has a SpriteRenderer
-		if(GetComponentsInChildren<SpriteRenderer>().Length == 0){
+		if(!GetComponent<SpriteRenderer>()){
 			Debug.LogWarning(gameObject.name + " does not have a SpriteRenderer", gameObject);
 			DestroyImmediate(this);
 			return;
 		}
 
-        var colliders = GetComponentsInChildren<BoxCollider2D>();
-        var renderers = GetComponentsInChildren<SpriteRenderer>();
-        if (colliders.Length != renderers.Length)
-        {
-            Debug.LogWarning(gameObject.name + " does not have the same quantity of SpriteRenderer and BoxCollider2D", gameObject);
-            DestroyImmediate(this);
-            return;
-        }
-
         //Adjust the BoxCollider2D size according to the SpriteRenderer
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].size = renderers[i].size;
-        }
+        GetComponent<BoxCollider2D>().size = GetComponent<SpriteRenderer>().size;
 
-		//Remove the script from the gameObject
+        //Remove the script from the gameObject
         DestroyImmediate(this);
 	}
 	
