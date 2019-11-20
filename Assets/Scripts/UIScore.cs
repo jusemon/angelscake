@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,6 @@ public class UIScore : MonoBehaviour
     /// <summary>
     /// Points required to next level (set in the Inspector)
     /// </summary>
-    [SerializeField]
     private int pointsToNextLevel;
 
     /// <summary>
@@ -36,6 +36,8 @@ public class UIScore : MonoBehaviour
         // Get a Reference to the Text component
         uiText = GetComponent<Text>();
 
+        // Get the sum of all the cake values around the level
+        pointsToNextLevel = FindObjectsOfType<CollectableCake>().Sum(c => c.cakeValue);
     }
 
     // Update is called once per frame
