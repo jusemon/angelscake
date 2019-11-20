@@ -6,14 +6,24 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class CollectableCake : MonoBehaviour
 {
+    /// <summary>
+    /// The collectable sound
+    /// </summary>
     public AudioClip collectableSound;
+
+    /// <summary>
+    /// The cake value
+    /// Stores the value of the cake in terms of Player's score
+    /// </summary>
+    public int cakeValue = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the player collides with the angel's cake
         if (collision.tag == "Player")
         {
-            //TODO: to implement increase number of collected cakes
+            // If so, increase te number of cakes the player has collected
+            FindObjectOfType<UIScore>().IncreaseScore(cakeValue);
 
             // Play the collectable sound
             GetComponent<AudioSource>().PlayOneShot(collectableSound);
