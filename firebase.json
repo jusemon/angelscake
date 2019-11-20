@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "angelscake-d9e20",
+    "public": "Build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
