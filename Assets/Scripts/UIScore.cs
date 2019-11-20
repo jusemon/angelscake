@@ -26,8 +26,7 @@ public class UIScore : MonoBehaviour
     /// <summary>
     /// Reference to the game over screen GameObject (set in the Inspector)
     /// </summary>
-    [SerializeField]
-    private GameObject gameOverScreen;
+    public GameObject gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
