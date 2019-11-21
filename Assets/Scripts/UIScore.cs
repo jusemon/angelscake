@@ -24,9 +24,9 @@ public class UIScore : MonoBehaviour
     private int pointsToNextLevel;
 
     /// <summary>
-    /// Reference to the game over screen GameObject (set in the Inspector)
+    /// Reference to the next level screen GameObject (set in the Inspector)
     /// </summary>
-    public GameObject gameOverScreen;
+    public GameObject nextLevelScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class UIScore : MonoBehaviour
         if (score >= pointsToNextLevel)
         {
             // If so, show the game over screen
-            gameOverScreen.SetActive(true);
+            nextLevelScreen.SetActive(true);
 
             // Disable the plater controller, so the player cannot move while the game over is on
             FindObjectOfType<PlayerController>().enabled = false;
