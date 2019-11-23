@@ -8,6 +8,7 @@ public class UINextLevel : MonoBehaviour
     public void PlayNextLevel()
     {
         var name = this.levelName.ToString();
+        Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
 }

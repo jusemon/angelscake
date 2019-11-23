@@ -53,6 +53,8 @@ public class UIScore : MonoBehaviour
         // Check if player has collected all the points to the next level
         if (score >= pointsToNextLevel)
         {
+            Time.timeScale = 0;
+
             // If so, show the game over screen
             nextLevelScreen.SetActive(true);
 
